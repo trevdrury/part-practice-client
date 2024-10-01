@@ -1,0 +1,14 @@
+<h2>User Registration</h2>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required>
+        <mat-error *ngIf="registrationForm.get('username').hasError('required')">
+            Username is required.
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!registrationForm.valid">
+        Register
+    </button>
+</form>
